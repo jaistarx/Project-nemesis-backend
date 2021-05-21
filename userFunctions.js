@@ -126,7 +126,7 @@ const deleteUser = async (req, res) => {
 
 const verifyToken = (req, res, next) => {
     const clienttoken = req.headers["authorization"];
-    console.log(clienttoken)
+    // console.log(clienttoken)
     if (typeof clienttoken !== "undefined") {
         req.token = clienttoken.split(" ")[1];
         next();
