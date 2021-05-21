@@ -13,7 +13,7 @@ const {
 
 const app = express();
 app.use(cors())
-app.listen(8080);
+app.listen(process.env.PORT);
 
 // database authentication
 const uri =process.env.MONGODB;
