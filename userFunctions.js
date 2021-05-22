@@ -39,7 +39,7 @@ const insertIntoDatabase = async (body) => {
                 email: newUserDetails.email,
                 address: newUserDetails.address,
             };
-            const token = await jwt.sign({ user },key,{expiresIn:15});
+            const token = await jwt.sign({ user },key,{expiresIn:300});
             resolve({ user, token });
         } catch (error) {
             reject({ message: "Email already exist" });
@@ -81,7 +81,7 @@ const login = async (req, res) => {
                 address:userData[0].address
 
             }
-            const token = await jwt.sign({ userDetails},key,{expiresIn:15});
+            const token = await jwt.sign({ userDetails},key,{expiresIn:300});
             return res
                 .status(200)
                 .json({ message: "login successful", status: true, token, userData });
